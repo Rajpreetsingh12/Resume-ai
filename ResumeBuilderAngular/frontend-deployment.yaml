@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mean-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mean-frontend
+  template:
+    metadata:
+      labels:
+        app: mean-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: gcr.io/heroviredacademics/resume-ai-frontend:latest
+        ports:
+        - containerPort: 53017

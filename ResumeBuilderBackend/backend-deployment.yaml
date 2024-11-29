@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mean-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mean-backend
+  template:
+    metadata:
+      labels:
+        app: mean-backend
+    spec:
+      containers:
+      - name: backend
+        image: gcr.io/heroviredacademics/mean-backend:latest
+        ports:
+        - containerPort: 4292
+        env:
+        - name: MONGO_URI
+          value: "mongodb+srv://Rajpreetmongo:rajeemongo@cluster0.umhetht.mongodb.net/Mean-gcp"
